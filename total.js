@@ -1,12 +1,14 @@
-/ function calcularTotal() {
-    const valores = document.querySelectorAll('table tr td:last-child');
-    let total = 0;
+window.onload = function() {
+  const valores = document.querySelectorAll('table tr td:nth-child(2)');
+  let total = 0;
 
-    valores.forEach(valor => {
-        if (!isNaN(valor.innerText)) {
-            total += parseFloat(valor.innerText);
-        }
-    });
+  valores.forEach(function(valor) {
+    const valorNumerico = parseFloat(valor.textContent);
+    if (!isNaN(valorNumerico)) {
+      total += valorNumerico;
+    }
+  });
 
-    document.getElementById('total').innerText = total.toFixed(2);
+  const campoTotal = document.getElementById('total');
+  campoTotal.textContent = total.toFixed(2);
 }
